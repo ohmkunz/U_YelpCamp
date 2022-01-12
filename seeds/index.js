@@ -26,6 +26,7 @@ async function seedImg() {
             params: {
                 client_id: client_id,
                 collections: 1114848,
+                w: 1600,
             },
         })
         return resp.data.urls.small
