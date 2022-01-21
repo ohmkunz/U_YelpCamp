@@ -6,7 +6,7 @@ const UserSchema = new Schema({
     email: {
         type: String,
         required: true,
-        unique: true
+        unique: [true, 'That email address has already been used']
     }
 })
 UserSchema.plugin(passportLocalMongoose)
