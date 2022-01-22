@@ -31,7 +31,7 @@ mongoose.connect('mongodb://localhost:27017/yelp-camp', {
 const app = express()
 
 app.engine('ejs', ejsMate)
-app.set('views engine', 'ejs')
+app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
@@ -63,7 +63,6 @@ passport.deserializeUser(User.deserializeUser())
 app.use((req, res, next) => {
 
     res.locals.currentUser = req.user
-    console.log(req.user)
     res.locals.success = req.flash('success')
     res.locals.error = req.flash('error')
     next()
