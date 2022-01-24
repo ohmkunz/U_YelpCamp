@@ -24,7 +24,7 @@ async function seedImg() {
     try {
         const resp = await axios.get('https://api.unsplash.com/photos/random', {
             params: {
-                client_id: client_id,
+                client_id: process.env.client_id,
                 collections: 1114848,
                 w: 1600,
             },
@@ -42,12 +42,25 @@ const seedDB = async () => {
         const price = Math.floor(Math.random() * 20) + 10
         const camp = new Campground({
             author: '61eae38f057e7b6dce21b7fa',
-            image: await seedImg(),
             location: `${cities[random1000].city}, ${cities[random1000].state}`,
             title: `${sample(descriptors)} ${sample(places)}`,
             price: price,
             description:
                 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, nihil tempora vel aspernatur quod aliquam illum! Iste impedit odio esse neque veniam molestiae eligendi commodi minus, beatae accusantium, doloribus quo!',
+            images: [
+                {
+                    url: 'https://res.cloudinary.com/dbcdcszee/image/upload/v1642949897/YelpCamp/fmqdp2gi2aixeyb4mfzw.jpg',
+                    filename: 'YelpCamp/fmqdp2gi2aixeyb4mfzw',
+                },
+                {
+                    url: 'https://res.cloudinary.com/dbcdcszee/image/upload/v1642949897/YelpCamp/il6plilgfcheyc7ck3lk.jpg',
+                    filename: 'YelpCamp/il6plilgfcheyc7ck3lk',
+                },
+                {
+                    url: 'https://res.cloudinary.com/dbcdcszee/image/upload/v1642949898/YelpCamp/z0jni3gbc3jwgp1sss6m.jpg',
+                    filename: 'YelpCamp/z0jni3gbc3jwgp1sss6m',
+                }
+            ]
         })
         await camp.save();
     }
