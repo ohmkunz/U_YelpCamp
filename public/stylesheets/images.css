@@ -1,10 +1,28 @@
 #formFile{
-    display: flex;
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
  }
-    #formFile img{
-    width: 100px;
-    height: 75px;
-    border-radius: 10px;
-    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+#formFile img{
+    
+    width: 48%;
+    height: 75%;
+    border-radius: 5%;
+    /* box-shadow: 0 0 8px rgba(0,0,0,0.2); */
     opacity: 85%;
+    margin:1%;
  }
+
+#deleteFile{
+   display: block;
+}
+#deleteFile img{
+   
+   width: 50%;
+   height: 75%;
+   border-radius:5%;
+   /* box-shadow: 0 0 8px rgba(0,0,0,0.2); */
+   opacity: 85%;
+   margin:1%;
+}
