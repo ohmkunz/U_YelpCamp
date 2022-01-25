@@ -20,8 +20,11 @@ const userRoutes = require('./routes/users')
 const campgroundRoutes = require('./routes/campgrounds')
 const reviewRoutes = require('./routes/reviews')
 const helmet = require('helmet')
+const MongoStore = require("connect-mongo");
 
-mongoose.connect('mongodb://localhost:27017/yelp-camp', {
+const dbUrl = process.env.DB_URL
+
+mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
@@ -40,14 +43,28 @@ app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
-app.use(morgan('tiny'))
+// app.use(morgan('tiny'))
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(mongoSanitize({ replaceWith: '_' }));
 
+const secret = process.env.SECRET || 'needabettersecret'
 
+const store = MongoStore.create({
+    mongoUrl: dbUrl,
+    touchAfter: 24 * 60 * 60,
+    crypto: {
+        secret: secret,
+    }
+});
+
+
+store.on("error", function (e) {
+    console.log("SESSION STORE ERROR", e)
+})
 
 const sessionConfig = {
-    secret: 'needabettersecret',
+    store: store,
+    secret: secret,
     resave: false,
     saveUninitialized: true,
     cookie: {
