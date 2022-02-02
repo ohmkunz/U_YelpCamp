@@ -1,5 +1,5 @@
 # U_YelpCamp
-Yelp-Camp is an app that lets you add campgrounds for other users to leave a comment on and rate, as well as see campgrounds that other people have contributed
+Yelp-Camp is an app that lets you add campgrounds for other users to leave their comments on and rate, as well as see campgrounds that other people have contributed
 <a href="https://u-yelp-camp.herokuapp.com/">
  <div align="center">
   <img src="https://i3.fpic.cc/file/img-b1/2022/02/02/messageImage_1643810296785.jpg" alt="messageImage_1643810296785.jpg" border="0">
