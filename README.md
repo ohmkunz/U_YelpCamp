@@ -13,7 +13,6 @@ Node.js, Express, MongoDB, and Bootstrap were used to develop this project. Auth
 ## Features
 * Users can create, edit, and remove campgrounds
 * Users can review campgrounds once, and edit or remove their review
-* User profiles include more information on the user (full name, email, phone, join date), their campgrounds, and the option to edit their profile or delete their account
 
 ## Built With
 
